@@ -1,0 +1,158 @@
+<!-- payments.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | Apex Mining Consultants</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-symbol">◆</span>
+                <span class="logo-text">Apex Mining</span>
+            </a>
+            <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="course.html">Course</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="payments.html" class="active">Payments</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Complete Your Payment</h1>
+                <p>Cryptocurrency payments only</p>
+            </div>
+        </section>
+
+        <section class="payment-section">
+            <div class="container">
+                <div class="payment-container">
+                    <div class="payment-form">
+                        <h2>Select Payment Method</h2>
+                        
+                        <div class="form-group">
+                            <label for="crypto-select">Choose Cryptocurrency</label>
+                            <select id="crypto-select" class="crypto-select">
+                                <option value="">Select a cryptocurrency...</option>
+                                <option value="btc">Bitcoin (BTC)</option>
+                                <option value="ltc">Litecoin (LTC)</option>
+                                <option value="eth">Ethereum (ERC-20)</option>
+                                <option value="usdt">USDT (ERC-20)</option>
+                                <option value="bnb">BNB (BEP-20)</option>
+                            </select>
+                        </div>
+
+                        <div id="payment-details" class="payment-details hidden">
+                            <div class="crypto-info">
+                                <h3 id="crypto-name"></h3>
+                                <div class="address-box">
+                                    <label>Send payment to this address:</label>
+                                    <div class="address-display">
+                                        <code id="crypto-address"></code>
+                                        <button class="copy-btn" onclick="copyAddress()">Copy</button>
+                                    </div>
+                                </div>
+                                <div class="qr-placeholder">
+                                    <div class="qr-code" id="qr-code">
+                                        QR Code Placeholder
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-notes">
+                                <div class="note warning">
+                                    <strong>Important:</strong> Include your order reference number in the transaction memo/description.
+                                </div>
+                                <div class="note">
+                                    <strong>Processing:</strong> Payments are confirmed after required network confirmations.
+                                </div>
+                                <div class="note final">
+                                    <strong>All sales are final once confirmed on-chain.</strong> No refunds after blockchain confirmation.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-summary">
+                            <h3>Order Summary</h3>
+                            <div class="summary-row">
+                                <span>Items:</span>
+                                <span>See checkout</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span>Calculated at checkout</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-help">
+                        <h3>Payment Instructions</h3>
+                        <ol>
+                            <li>Select your preferred cryptocurrency from the dropdown</li>
+                            <li>Copy the displayed wallet address or scan the QR code</li>
+                            <li>Send the exact amount from your wallet</li>
+                            <li>Include your order reference in the transaction memo</li>
+                            <li>Wait for network confirmations (typically 3-6 blocks)</li>
+                            <li>Receive confirmation email once payment is verified</li>
+                        </ol>
+                        
+                        <div class="support-box">
+                            <h4>Need Help?</h4>
+                            <p>Contact support if you encounter issues:</p>
+                            <p><a href="mailto:support@apexminingconsultants.com">support@apexminingconsultants.com</a></p>
+                            <p><a href="https://t.me/apexmining" target="_blank">@apexmining on Telegram</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="support" class="support-section">
+            <div class="container">
+                <h2>Customer Support</h2>
+                <div class="support-grid">
+                    <div class="support-info">
+                        <h3>Contact Us</h3>
+                        <p>Email: <a href="mailto:support@apexminingconsultants.com">support@apexminingconsultants.com</a></p>
+                        <p>Telegram: <a href="https://t.me/apexmining" target="_blank">@apexmining</a></p>
+                    </div>
+                    <div class="support-form">
+                        <h3>Send a Message</h3>
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
+                            <textarea name="message" placeholder="How can we help?" rows="4" required></textarea>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Apex Mining Consultants. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
