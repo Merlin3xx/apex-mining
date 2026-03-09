@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar (same as other pages) -->
+    <!-- Navbar (copy from other pages) -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
@@ -30,7 +30,7 @@
     <header class="page-header">
         <div class="container">
             <h1>Order Review & Checkout</h1>
-            <p>Review your selection and proceed to secure payment.</p>
+            <p>Please review your selection before proceeding to payment.</p>
         </div>
     </header>
 
@@ -39,38 +39,14 @@
             <div class="order-summary">
                 <h2>Your Order</h2>
                 <div id="order-details">
-                    <!-- Dynamically filled by JS -->
-                    <p id="item-name">Loading item...</p>
-                    <p id="item-specs"></p>
-                    <p id="item-price" class="price"></p>
+                    <p><strong>Item:</strong> <span id="item-name">Loading...</span></p>
+                    <p><strong>Details:</strong> <span id="item-specs"></span></p>
+                    <p><strong>Price:</strong> <span id="item-price" class="price"></span></p>
                 </div>
                 <div class="total">
                     <p><strong>Total:</strong> <span id="total-price"></span></p>
                 </div>
                 <button id="proceed-btn" class="btn btn-primary">Proceed to Payment</button>
-            </div>
-
-            <div id="payment-area" style="display:none; margin-top: 2rem;">
-                <h2>Payment Instructions</h2>
-                <p>Select cryptocurrency below and send the exact amount to the displayed address. Include your order reference in the memo.</p>
-
-                <div class="payment-selector">
-                    <label for="coin">Select Cryptocurrency:</label>
-                    <select id="coin">
-                        <option value="">Choose coin...</option>
-                        <option value="btc">Bitcoin (BTC)</option>
-                        <option value="ltc">Litecoin (LTC)</option>
-                        <option value="eth">Ethereum (ERC-20)</option>
-                        <option value="usdt">USDT (ERC-20)</option>
-                        <option value="bnb">BNB (BEP-20)</option>
-                    </select>
-                </div>
-
-                <div id="address-box" style="display:none; margin-top:1.5rem; padding:1.5rem; background:#1e293b; border:1px solid #475569; border-radius:8px;">
-                    <p><strong id="coin-name"></strong></p>
-                    <p>Send to: <code id="addr"></code></p>
-                    <p><small>Double-check address & network. No refunds for errors. All sales final once on-chain.</small></p>
-                </div>
             </div>
         </div>
     </section>
@@ -79,19 +55,21 @@
 
     <script src="script.js"></script>
     <script>
-      // Checkout logic
+      // Checkout logic (read from URL params)
       document.addEventListener('DOMContentLoaded', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const item = urlParams.get('item') || 'Unknown Item';
+        const specs = urlParams.get('specs') || '';
         const price = urlParams.get('price') || '$0';
 
         document.getElementById('item-name').textContent = item;
+        document.getElementById('item-specs').textContent = specs;
         document.getElementById('item-price').textContent = price;
         document.getElementById('total-price').textContent = price;
 
+        // Proceed button redirects to payments.html
         document.getElementById('proceed-btn').addEventListener('click', () => {
-          document.getElementById('payment-area').style.display = 'block';
-          document.getElementById('proceed-btn').style.display = 'none';
+          window.location.href = 'payments.html';
         });
       });
     </script>
